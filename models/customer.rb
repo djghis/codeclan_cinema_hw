@@ -40,6 +40,11 @@ class Customer
 
   end
 
+  def films_count()
+    films = self.films_seen()
+     films.count
+  end
+
   def self.all()
     sql = "SELECT * FROM customers"
     customers = SqlRunner.run(sql)
