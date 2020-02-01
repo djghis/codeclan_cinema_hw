@@ -46,18 +46,23 @@ class Customer
   end
 
 
-def buying_ticket
+def buying_ticket()
   tickets = self.films_seen
-  p sum_of_tickets = tickets.map {|ticket| ticket.price}
-   all_tickets = sum_of_tickets.sum
-   return @funds - all_tickets
+   all_tickets = tickets.map {|ticket| ticket.price}
+   sum_of_tickets = all_tickets.sum
+    left_funds= @funds -= sum_of_tickets
+   self.update
+   return left_funds
+
 end
 
   # def buying_ticket()
-  #   sql = "SELECT customers.funds FROM customers INNER JOIN tickets ON tickets.customer_id = customers.id WHERE customer_id = $1"
-  #   values = (@id)
-  #   SqlRunner.run(sql, values)
-  #    @funds -= price
+  #   sql = "SELECT films.* FROM films INNER JOIN tickets ON tickets.film_id  = films.id WHERE customer_id = $1"
+  #   values = [@id]
+  #   films = SqlRunner.run(sql, values)
+  #   p tickets =  films.map{|film| Film.new(film)}
+  #   all_tickets = tickets.map{|ticket| ticket.price}
+  #    @funds -= all_tickets.sum
   #   self.update
   #   return @funds
   # end
