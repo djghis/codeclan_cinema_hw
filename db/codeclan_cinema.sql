@@ -25,6 +25,6 @@ CREATE TABLE screenings (
   id SERIAL PRIMARY KEY,
   customer_id INT REFERENCES customers(id),
   film_id INT REFERENCES films(id),
-  -- film_title VARCHAR REFERENCES films(show_time)
-  -- show_time VARCHAR(255) REFERENCES films(show_time)
+  -- film_title VARCHAR(255) REFERENCES films(title)
+  -- film_show_time VARCHAR(255) REFERENCES films(show_time)
 )
